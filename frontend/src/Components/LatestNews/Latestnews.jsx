@@ -8,7 +8,7 @@ const Latestnews = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const url = 'https://newsapi.org/v2/top-headlines?category=science&country=us&apiKey=d9f0a940c231415dafbb0777e8a4449f';
+        const url = 'https://newsapi.org/v2/everything?q=keyword&apiKey=d2c3e24ce39948caa79040fe10ad2929';
 
         axios.get(url)
             .then(response => {
