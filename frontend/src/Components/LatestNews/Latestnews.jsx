@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, CardHeader, HStack, Stack, Heading, Text, Image } from '@chakra-ui/react';
+import axios from 'axios';
 
 const Latestnews = () => {
     const [news, setNews] = useState([]);
@@ -9,16 +10,10 @@ const Latestnews = () => {
     useEffect(() => {
         const url = 'https://newsapi.org/v2/top-headlines?category=science&country=us&apiKey=d9f0a940c231415dafbb0777e8a4449f';
 
-        fetch(url)
+        axios.get(url)
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                setNews(data.articles);
-                console.log(data.articles)
+                setNews(response.data.articles);
+                console.log(response.data.articles)
             })
             .catch(error => {
                 console.error('Error fetching science news:', error);
