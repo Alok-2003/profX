@@ -12,7 +12,7 @@ app.use(
   cors({
     // origin: [process.env.FRONTEND_URL],
     origin: ["https://profx-alok.vercel.app"],
-    methods: ["POST"],
+    methods: ["POST","GET"],
     credentials: true,
   })
 );

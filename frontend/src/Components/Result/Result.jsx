@@ -10,7 +10,8 @@ const Result = () => {
   useEffect(() => {
     const handleMarksGet = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/receive');
+        const response = await axios.get('https://profx-api.vercel.app/api/receive');
+        // const response = await axios.get('http://localhost:4000/api/receive');
         // Assuming the response contains the fetched data
         const data = response.data;
         // Handle the fetched data as needed, such as setting state or logging
