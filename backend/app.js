@@ -5,8 +5,8 @@ import { dbConnection } from "./database/dbConnection.js";
 import { errorMiddleware } from "./error/error.js";
 import StudentMarks from "./routes/MarksRoute.js";
 
-const app = express();
 dotenv.config({ path: "./config/config.env" });
+const app = express();
 
 app.use(
   cors({
@@ -20,8 +20,9 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api",StudentMarks )
-
-dbConnection();
-
+app.get("/", (req, res) => {
+  res.json("Hello, welcome to the profX Api");
+});
+dbConnection()
 app.use(errorMiddleware);
 export default app;
